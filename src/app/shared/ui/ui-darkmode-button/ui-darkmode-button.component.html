@@ -1,0 +1,11 @@
+<button
+    title="Darkmode"
+    class="relative w-14 h-7 rounded-full transition-all border bg-palette-light-100 border-palette-light-300 dark:bg-palette-dark-200 dark:border-palette-dark-300"
+    (click)="toggleDarkmode()" type="button"
+>
+    <div class="absolute top-0 bottom-0 my-auto mx-0 rounded-full w-7 h-7 transition-all flex items-center justify-center shadow-button text-palette-light-600 dark:text-palette-dark-700 bg-palette-light-100 dark:bg-palette-dark-400"
+        [ngClass]="{'right-0': _DarkmodeService.darkMode, 'right-1/2': !_DarkmodeService.darkMode}">
+        <div [ngClass]="{'hidden': _DarkmodeService.darkMode}"> <fa-icon [icon]="faSun" class="text-amber-400" ></fa-icon> </div>
+        <div [ngClass]="{'hidden': !_DarkmodeService.darkMode}"> <fa-icon [icon]="faMoon"></fa-icon> </div>
+    </div>
+</button>

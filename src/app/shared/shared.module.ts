@@ -4,9 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { UiDarkmodeButtonComponent } from './ui/ui-darkmode-button/ui-darkmode-button.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    UiDarkmodeButtonComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -15,7 +18,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   exports: [
-    FontAwesomeModule
+    FontAwesomeModule,
+    UiDarkmodeButtonComponent
   ]
 })
 export class SharedModule { }
