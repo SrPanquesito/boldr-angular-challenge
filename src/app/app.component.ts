@@ -8,6 +8,7 @@ import { DarkmodeService } from './core/services/darkmode.service';
     <div class="fixed top-3 right-3 z-50">
       <ui-darkmode-button></ui-darkmode-button>
     </div>
+    <app-header></app-header>
     <router-outlet></router-outlet>
   </main>
   `
