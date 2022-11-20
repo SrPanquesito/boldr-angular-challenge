@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <!-- <span>{{ title }} app is running!</span> -->
+    <router-outlet></router-outlet>
+  `
 })
 export class AppComponent {
-  faCoffee = faCoffee;
   title = 'boldr-angular-challenge';
 }
