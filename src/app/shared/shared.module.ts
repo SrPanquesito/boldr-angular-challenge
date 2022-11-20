@@ -6,11 +6,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UiDarkmodeButtonComponent } from './ui/ui-darkmode-button/ui-darkmode-button.component';
 import { HeaderComponent } from './components/header/header.component';
+import { UiCardComponent } from './ui/ui-card/ui-card.component';
+import { UiTypeIconComponent } from './ui/ui-card/ui-type-icon/ui-type-icon.component';
 
 @NgModule({
   declarations: [
     UiDarkmodeButtonComponent,
-    HeaderComponent
+    HeaderComponent,
+    UiCardComponent,
+    UiTypeIconComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,8 @@ import { HeaderComponent } from './components/header/header.component';
   exports: [
     FontAwesomeModule,
     UiDarkmodeButtonComponent,
-    HeaderComponent
+    HeaderComponent,
+    UiCardComponent
   ]
 })
 export class SharedModule { }
