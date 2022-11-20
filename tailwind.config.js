@@ -140,7 +140,8 @@ module.exports = {
       center: true,
       padding: "1rem",
       screens: {
-          lg: "975px"
+          lg: "975px",
+          xl: "1200px"
       },
     },
   },
