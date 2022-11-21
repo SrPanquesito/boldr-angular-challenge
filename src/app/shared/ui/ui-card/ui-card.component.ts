@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { WorksItemsInterface } from '../../models/works.model';
 
 @Component({
   selector: 'ui-card',
@@ -9,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UiCardComponent implements OnInit {
   constructor() { }
 
-  @Input() type: String = '';
+  @Input() data?: WorksItemsInterface;
 
   ngOnInit(): void {
   }
