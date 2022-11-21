@@ -8,13 +8,17 @@ import { UiDarkmodeButtonComponent } from './ui/ui-darkmode-button/ui-darkmode-b
 import { HeaderComponent } from './components/header/header.component';
 import { UiCardComponent } from './ui/ui-card/ui-card.component';
 import { UiTypeIconComponent } from './ui/ui-card/ui-type-icon/ui-type-icon.component';
+import { SimplifyWorkTypePipe } from './pipes/simplify-work-type.pipe';
+import { UiBadgeComponent } from './ui/ui-badge/ui-badge.component';
 
 @NgModule({
   declarations: [
     UiDarkmodeButtonComponent,
     HeaderComponent,
     UiCardComponent,
-    UiTypeIconComponent
+    UiTypeIconComponent,
+    SimplifyWorkTypePipe,
+    UiBadgeComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +31,9 @@ import { UiTypeIconComponent } from './ui/ui-card/ui-type-icon/ui-type-icon.comp
     FontAwesomeModule,
     UiDarkmodeButtonComponent,
     HeaderComponent,
-    UiCardComponent
+    UiCardComponent,
+    SimplifyWorkTypePipe,
+    UiBadgeComponent
   ]
 })
 export class SharedModule { }
