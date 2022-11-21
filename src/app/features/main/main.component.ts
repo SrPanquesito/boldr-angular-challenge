@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiMainService } from './services/api/api-main.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class MainComponent implements OnInit {
-  constructor() { }
+  constructor(private _ApiMainService: ApiMainService) { }
 
   ngOnInit(): void {
+    this._ApiMainService.getCrossrefRandomData().subscribe(res => console.log(res))
   }
 
 }

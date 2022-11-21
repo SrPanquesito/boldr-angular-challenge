@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UiCardComponent } from './ui-card.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('UiCardComponent', () => {
   let component: UiCardComponent;
@@ -8,7 +9,8 @@ describe('UiCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiCardComponent ]
+      declarations: [ UiCardComponent ],
+      imports: [ SharedModule ]
     })
     .compileComponents();
 

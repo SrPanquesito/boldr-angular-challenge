@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UiTypeIconComponent } from './ui-type-icon.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('UiTypeIconComponent', () => {
   let component: UiTypeIconComponent;
@@ -8,7 +9,8 @@ describe('UiTypeIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiTypeIconComponent ]
+      declarations: [ UiTypeIconComponent ],
+      imports: [ SharedModule ]
     })
     .compileComponents();
 
