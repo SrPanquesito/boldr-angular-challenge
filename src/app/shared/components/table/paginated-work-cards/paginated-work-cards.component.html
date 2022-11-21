@@ -1,1 +1,16 @@
-<p>paginated-work-cards works!</p>
+<ng-container *ngIf="(works$ | async) as data">
+    <div class="flex flex-col justify-between gap-9">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
+            <ng-container *ngFor="let element of data">
+                <ui-card class="w-full"></ui-card>
+            </ng-container>
+        </section>
+        <div class="flex justify-end items-center">
+            <button class="rounded-full py-2 px-6 font-semibold shadow-base transition-all bg-sky-500 hover:bg-sky-600 text-white"
+                (click)="onNextEmit()"
+            >
+                Next
+            </button>
+        </div>
+    </div>
+</ng-container>

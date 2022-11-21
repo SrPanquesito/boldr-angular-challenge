@@ -28,6 +28,7 @@ describe('ApiMainService', () => {
     const expectedResult: Partial<CrossRefResponseInterface> = {
       status: "ok",
       message: {
+        "next-cursor": '',
         "total-results": 10,
         items: [{}, {}, {}]
       }
@@ -54,12 +55,13 @@ describe('ApiMainService', () => {
   }, 20000);
 
   it('should return paginated data if getAllWorksPaginated() is called', (done: DoneFn) => {
-    const url = env.apiUrl + `/works?select=DOI,title,publisher,author,type,created,URL&rows=20&sort=published&order=asc&cursor=*`;
+    const url = env.apiUrl + `/works?select=DOI,title,publisher,author,type,created,URL&rows=6&sort=published&order=asc&cursor=*`;
     const expectedResult: Partial<CrossRefResponseInterface> = {
       status: "ok",
       message: {
+        "next-cursor": '',
         "total-results": 1000,
-        items: [{}, {}, {}]
+        items: [{}, {}, {}],
       }
     };
 

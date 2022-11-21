@@ -7,5 +7,6 @@ export interface CrossRefResponseInterface {
         [key: string]: any,
         "total-results": number,
         items: Array<any>,
+        "next-cursor": string,
     }
   }
