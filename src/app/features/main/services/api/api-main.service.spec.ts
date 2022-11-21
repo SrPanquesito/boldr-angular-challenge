@@ -2,6 +2,7 @@ import { HttpEvent, HttpEventType, HttpClient, HttpClientModule } from '@angular
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed, getTestBed, fakeAsync, tick, inject } from '@angular/core/testing';
 import { environment as env } from 'src/environments/environment';
+import { CrossRefResponseInterface } from 'src/app/shared/models/http.model';
 
 import { ApiMainService } from './api-main.service';
 
@@ -52,17 +53,34 @@ describe('ApiMainService', () => {
     req.flush(expectedResult);
   }, 20000);
 
+  it('should return paginated data if getAllWorksPaginated() is called', (done: DoneFn) => {
+    const url = env.apiUrl + `/works?select=DOI,title,publisher,author,type,created,URL&rows=20&sort=published&order=asc&cursor=*`;
+    const expectedResult: Partial<CrossRefResponseInterface> = {
+      status: "ok",
+      message: {
+        "total-results": 1000,
+        items: [{}, {}, {}]
+      }
+    };
+
+    service.getAllWorksPaginated().subscribe((res?: CrossRefResponseInterface) => {
+      if (res?.status) {
+        expect(res.status).toEqual("ok");
+        expect(res.message['total-results']).toBeGreaterThan(0);
+        expect(res.message.items.length).toBeGreaterThan(0);
+        done();
+      }
+    });
+
+    const req = httpController.expectOne({
+      method: 'GET',
+      url: `${url}`,
+    });
+
+    expect(req.cancelled).toBeFalsy();
+    expect(req.request.responseType).toEqual('json');
+
+    req.flush(expectedResult);
+  }, 20000);
+
 });
-
-
-interface CrossRefResponseInterface {
-  [key: string]: any,
-  status: string,
-  "message-type": string,
-  "message-version": string,
-  message: {
-      [key: string]: any,
-      "total-results": number,
-      items: Array<any>,
-  }
-}

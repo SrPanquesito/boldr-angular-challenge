@@ -10,6 +10,7 @@ import { UiCardComponent } from './ui/ui-card/ui-card.component';
 import { UiTypeIconComponent } from './ui/ui-card/ui-type-icon/ui-type-icon.component';
 import { SimplifyWorkTypePipe } from './pipes/simplify-work-type.pipe';
 import { UiBadgeComponent } from './ui/ui-badge/ui-badge.component';
+import { PaginatedWorkCardsComponent } from './components/table/paginated-work-cards/paginated-work-cards.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UiBadgeComponent } from './ui/ui-badge/ui-badge.component';
     UiCardComponent,
     UiTypeIconComponent,
     SimplifyWorkTypePipe,
-    UiBadgeComponent
+    UiBadgeComponent,
+    PaginatedWorkCardsComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { UiBadgeComponent } from './ui/ui-badge/ui-badge.component';
     HeaderComponent,
     UiCardComponent,
     SimplifyWorkTypePipe,
-    UiBadgeComponent
+    UiBadgeComponent,
+    PaginatedWorkCardsComponent
   ]
 })
 export class SharedModule { }
