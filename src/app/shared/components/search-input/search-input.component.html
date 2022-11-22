@@ -1,0 +1,13 @@
+<div aria-haspopup="true" class="flex items-center lg:m-auto rounded-lg border border-plaeto-light-300 dark:border-plaeto-dark-300">
+    <input 
+        [formControl]="search"
+        [placeholder]="options?.placeholder ?? 'Search'"
+        [name]="options?.name ?? 'ui-search-input'"
+        [autocomplete]="options?.autocomplete ?? 'ui-search-input'"
+        type="text"
+        class="text-xs w-full px-2 h-9 border-none focus:ring-transparent bg-transparent placeholder:text-plaeto-light-500 text-plaeto-light-500"
+        >
+    <i class="fi fi-rs-search transition-all cursor-pointer mr-3 text-plaeto-light-500"
+        (click)="onEmitInput()"
+    ></i> 
+</div>

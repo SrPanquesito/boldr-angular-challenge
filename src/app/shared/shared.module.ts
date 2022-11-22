@@ -11,6 +11,7 @@ import { UiTypeIconComponent } from './ui/ui-card/ui-type-icon/ui-type-icon.comp
 import { SimplifyWorkTypePipe } from './pipes/simplify-work-type.pipe';
 import { UiBadgeComponent } from './ui/ui-badge/ui-badge.component';
 import { PaginatedWorkCardsComponent } from './components/table/paginated-work-cards/paginated-work-cards.component';
+import { SearchInputComponent } from './components/search-input/search-input.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PaginatedWorkCardsComponent } from './components/table/paginated-work-c
     UiTypeIconComponent,
     SimplifyWorkTypePipe,
     UiBadgeComponent,
-    PaginatedWorkCardsComponent
+    PaginatedWorkCardsComponent,
+    SearchInputComponent
   ],
   imports: [
     CommonModule,

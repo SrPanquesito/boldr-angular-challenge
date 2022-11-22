@@ -85,4 +85,36 @@ describe('ApiMainService', () => {
     req.flush(expectedResult);
   }, 20000);
 
+  it('should return paginated and searched data if getAllWorksPaginatedBySearch() is called with a search query', (done: DoneFn) => {
+    const url = env.apiUrl + `/works?query=&select=DOI,title,publisher,author,type,created,URL&rows=6&sort=relevance&order=desc&cursor=*`;
+
+    const expectedResult: Partial<CrossRefResponseInterface> = {
+      status: "ok",
+      message: {
+        "next-cursor": '',
+        "total-results": 1000,
+        items: [{}, {}, {}],
+      }
+    };
+
+    service.getAllWorksPaginatedBySearch().subscribe((res?: CrossRefResponseInterface) => {
+      if (res?.status) {
+        expect(res.status).toEqual("ok");
+        expect(res.message['total-results']).toBeGreaterThan(0);
+        expect(res.message.items.length).toBeGreaterThan(0);
+        done();
+      }
+    });
+
+    const req = httpController.expectOne({
+      method: 'GET',
+      url: `${url}`,
+    });
+
+    expect(req.cancelled).toBeFalsy();
+    expect(req.request.responseType).toEqual('json');
+
+    req.flush(expectedResult);
+  }, 20000);
+
 });

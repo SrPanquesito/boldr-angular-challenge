@@ -20,4 +20,9 @@ export class ApiMainService {
     return this._HttpClient.get<CrossRefResponseInterface>(env.apiUrl + `/works?select=DOI,title,publisher,author,type,created,URL&rows=6&sort=published-online&order=desc&cursor=` + cursor)
     .pipe(map((res: any) => { return res }), catchError((error: any) => { console.log(error); return of(error) }))
   }
+
+  getAllWorksPaginatedBySearch(query: string = '', cursor: string = '*') {
+    return this._HttpClient.get<CrossRefResponseInterface>(env.apiUrl + `/works?query=` + query + `&select=DOI,title,publisher,author,type,created,URL&rows=6&sort=relevance&order=desc&cursor=` + cursor)
+    .pipe(map((res: any) => { return res }), catchError((error: any) => { console.log(error); return of(error) }))
+  }
 }
