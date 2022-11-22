@@ -1,4 +1,4 @@
-<div aria-haspopup="true" class="flex items-center gap-2 py-3 px-6 lg:m-auto rounded-lg border shadow-base dark:shadow-palette-dark-200 bg-white dark:bg-palette-dark-200 border-palette-light-300 dark:border-slate-800">
+<div aria-haspopup="true" class="flex items-center gap-2 py-3 px-6 lg:m-auto rounded-lg border shadow-base dark:shadow-gray-800 bg-white dark:bg-palette-dark-200 border-palette-light-300 dark:border-slate-800">
     <fa-icon [icon]="faSearch" class="transition-all cursor-pointer text-slate-500 hover:text-slate-700 hover:dark:text-slate-400"
         (click)="onEmitInput()"
     ></fa-icon>
@@ -8,6 +8,6 @@
         [name]="options?.name ?? 'ui-search-input'"
         [autocomplete]="options?.autocomplete ?? 'ui-search-input'"
         type="text"
-        class="text-sm w-full px-2 h-9 border-none focus:ring-transparent bg-transparent placeholder:text-slate-500 text-slate-500"
+        class="text-sm w-full px-2 h-9 border-none focus:ring-transparent bg-transparent placeholder:text-slate-500 text-slate-500 dark:text-slate-400 placeholder:dark:text-slate-400"
         > 
 </div>
