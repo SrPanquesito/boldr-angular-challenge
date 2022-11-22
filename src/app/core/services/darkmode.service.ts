@@ -8,6 +8,10 @@ export class DarkmodeService {
 
     public darkMode: boolean = false;
 
+    init() {
+        this.setBodyDarkmode();
+    }
+
     setBodyDarkmode() {
         document.body.style.backgroundColor = this.darkMode ? "rgb(9, 10, 11)" : "rgb(246, 247, 248)";
         return document.body.style.backgroundColor

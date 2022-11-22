@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TableService } from 'src/app/shared/services/table.service';
 import { Observable } from 'rxjs';
-import { CrossRefResponseInterface } from 'src/app/shared/models/http.model';
+import { faCircleNotch, faSync, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'table-paginated-work-cards',
@@ -10,11 +10,13 @@ import { CrossRefResponseInterface } from 'src/app/shared/models/http.model';
   ]
 })
 export class PaginatedWorkCardsComponent implements OnInit {
-  constructor(private _TableService: TableService) { }
+  constructor(public _TableService: TableService) { }
 
   public works$: Observable<Array<any>> = this._TableService.worksObs$;
 
   @Output() onNext: EventEmitter<any> = new EventEmitter<any>();
+
+  faSpinner = faSpinner;
 
   ngOnInit(): void {
   }

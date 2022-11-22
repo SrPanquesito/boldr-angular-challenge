@@ -16,10 +16,14 @@ export class FacadeMainService {
   public cursor: string = '*';
 
   getNextWorksPaginated() {
+    this._TableService.loadingData = true;
+    // this.mockWorks();
+
     this._ApiMainService.getAllWorksPaginated(this.cursor).pipe(first())
     .subscribe((res: CrossRefResponseInterface) => {
       this.cursor = res.message['next-cursor'];
       this._TableService.works = res.message.items;
+      this._TableService.loadingData = false;
     })
   }
 

@@ -8,12 +8,12 @@
                 <ui-badge>{{ data.type | simplifyWorkType }}</ui-badge>
                 <span class="text-xs font-poppins font-semibold text-slate-400">{{ data.created['date-time'] | date: 'medium' }}</span>
             </div>
-            <h1 class="text-xl font-bold font-poppins hover:underline dark:text-slate-100"> {{ data.title ? data.title[0] : data.DOI }} </h1>
+            <h1 class="line-clamp-3 text-lg font-bold font-poppins hover:underline dark:text-slate-100"> {{ data.title ? data.title[0] : data.DOI }} </h1>
             <div class="flex flex-col gap-2">
-                <h2 class="text-sm text-slate-400"><b class="font-bold text-slate-500">Publisher:</b> {{ data.publisher }} </h2>
-                <h2 class="text-sm text-slate-400"><b class="font-bold text-slate-500">Author:</b> {{ data.author ? data.author.length > 0 ? data.author[0]['family'] : '-' : '-' }} </h2>
-                <h2 class="text-sm text-slate-400"><b class="font-bold text-slate-500">DOI:</b> {{ data.DOI }} </h2>
-                <h2 class="text-sm text-slate-400"><b class="font-bold text-slate-500">URL: </b> <a class="text-indigo-700 hover:underline" [href]="data.URL" target="__blank">{{ data.URL }}</a> </h2>
+                <h2 class="text-sm text-slate-400 text-ellipsis overflow-hidden whitespace-nowrap"><b class="font-bold text-slate-500">Publisher:</b> {{ data.publisher }} </h2>
+                <h2 class="text-sm text-slate-400 text-ellipsis overflow-hidden whitespace-nowrap"><b class="font-bold text-slate-500">Author:</b> {{ data.author ? data.author.length > 0 ? data.author[0]['family'] : '-' : '-' }} </h2>
+                <h2 class="text-sm text-slate-400 text-ellipsis overflow-hidden whitespace-nowrap"><b class="font-bold text-slate-500">DOI:</b> {{ data.DOI }} </h2>
+                <h2 class="text-sm text-slate-400 text-ellipsis overflow-hidden whitespace-nowrap"><b class="font-bold text-slate-500">URL: </b> <a class="text-indigo-700 hover:underline" [href]="data.URL" target="__blank">{{ data.URL }}</a> </h2>
             </div>
         </div>
     </ng-container>

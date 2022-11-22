@@ -13,8 +13,7 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this._FacadeMainService.getNextWorksPaginated();
-    this._FacadeMainService.mockWorks();
+    this._FacadeMainService.getNextWorksPaginated();
   }
 
   onNextWorks() {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DarkmodeService } from './core/services/darkmode.service';
 
 @Component({
@@ -13,6 +13,10 @@ import { DarkmodeService } from './core/services/darkmode.service';
   </main>
   `
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(public _DarkmodeService: DarkmodeService) { }
+
+  ngOnInit() {
+    this._DarkmodeService.init();
+  }
 }
