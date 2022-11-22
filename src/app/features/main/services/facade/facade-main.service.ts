@@ -13,12 +13,31 @@ export class FacadeMainService {
     private _TableService: TableService,
   ) { }
 
-  public cursor: string = '*';
+  private cursor: string = '*';
+  public previousQuery: string = '';
+
+  resetCursor() {
+    this.cursor = '*';
+  }
 
   getNextWorksPaginated() {
     this._TableService.loadingData = true;
 
     this._ApiMainService.getAllWorksPaginated(this.cursor).pipe(first())
+    .subscribe((res: CrossRefResponseInterface) => {
+      this.cursor = res.message['next-cursor'];
+      this._TableService.works = res.message.items;
+      this._TableService.loadingData = false;
+    })
+  }
+
+  getNextWorksPaginatedBySearch(e: string) {
+    if (e === '') { this.previousQuery = ''; this.resetCursor(); this.getNextWorksPaginated(); return }
+    if (this.previousQuery !== e) { this.previousQuery = e; this.resetCursor() }
+
+    this._TableService.loadingData = true;
+
+    this._ApiMainService.getAllWorksPaginatedBySearch(e, this.cursor).pipe(first())
     .subscribe((res: CrossRefResponseInterface) => {
       this.cursor = res.message['next-cursor'];
       this._TableService.works = res.message.items;

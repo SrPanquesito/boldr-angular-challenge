@@ -15,6 +15,7 @@ export class PaginatedWorkCardsComponent implements OnInit {
   public works$: Observable<Array<any>> = this._TableService.worksObs$;
 
   @Output() onNext: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onSearch: EventEmitter<any> = new EventEmitter<any>();
 
   faSpinner = faSpinner;
 
@@ -25,8 +26,8 @@ export class PaginatedWorkCardsComponent implements OnInit {
     this.onNext.emit(true);
   }
 
-  onSearch(e: any) {
-    console.log(e)
+  onSearchEmit(e: any) {
+    this.onSearch.emit(e)
   }
 
 }

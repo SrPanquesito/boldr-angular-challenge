@@ -20,4 +20,8 @@ export class MainComponent implements OnInit {
     this._FacadeMainService.getNextWorksPaginated();
   }
 
+  onSearchWorks(e: any) {
+    this._FacadeMainService.getNextWorksPaginatedBySearch(e)
+  }
+
 }
