@@ -25,4 +25,8 @@ export class PaginatedWorkCardsComponent implements OnInit {
     this.onNext.emit(true);
   }
 
+  onSearch(e: any) {
+    console.log(e)
+  }
+
 }

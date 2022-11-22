@@ -38,7 +38,8 @@ import { SearchInputComponent } from './components/search-input/search-input.com
     UiCardComponent,
     SimplifyWorkTypePipe,
     UiBadgeComponent,
-    PaginatedWorkCardsComponent
+    PaginatedWorkCardsComponent,
+    SearchInputComponent
   ]
 })
 export class SharedModule { }

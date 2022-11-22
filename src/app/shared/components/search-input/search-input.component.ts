@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef, Input, 
 import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { map, debounceTime, filter, takeUntil, distinctUntilChanged } from 'rxjs/operators';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-search-input',
@@ -19,6 +20,8 @@ export class SearchInputComponent implements OnInit, OnDestroy {
   public search: FormControl = new FormControl('');
   private destroy$: Subject<unknown> = new Subject<unknown>();
 
+  faSearch = faSearch;
+
   ngOnInit(): void {
     this.onSearch();
   }
@@ -29,7 +32,7 @@ export class SearchInputComponent implements OnInit, OnDestroy {
   }
 
   onEmitInput() {
-    this.onChange.emit(this.search.value?.toLowerCase().trim().replace(' ','+'))
+    this.onChange.emit(this.search.value?.toLowerCase().trim().split(' ').join('+'))
   }
 
   private onSearch(): void {
@@ -38,7 +41,7 @@ export class SearchInputComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
         debounceTime(1000),
         distinctUntilChanged(),
-        map(value => this.onChange.emit(value?.toLowerCase().trim().replace(' ','+')) ),
+        map(value => this.onChange.emit(value?.toLowerCase().trim().split(' ').join('+')) ),
       ).subscribe();
   }
 
