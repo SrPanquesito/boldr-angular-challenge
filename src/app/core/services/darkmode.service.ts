@@ -9,7 +9,12 @@ export class DarkmodeService {
     public darkMode: boolean = false;
 
     init() {
+        this.checkDarkmode();
         this.setBodyDarkmode();
+    }
+
+    checkDarkmode() {
+        this.darkMode = localStorage.getItem('theme') === 'dark' ? true : false;
     }
 
     setBodyDarkmode() {
@@ -18,7 +23,8 @@ export class DarkmodeService {
     }
 
     toggleDarkmode() {
-        this.darkMode = !this.darkMode;
+        localStorage.getItem('theme') === 'dark' ? localStorage.removeItem('theme') : localStorage.setItem('theme', 'dark');
+        this.checkDarkmode();
         this.setBodyDarkmode();
         return this.darkMode
     }

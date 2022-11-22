@@ -55,7 +55,7 @@ describe('ApiMainService', () => {
   }, 20000);
 
   it('should return paginated data if getAllWorksPaginated() is called', (done: DoneFn) => {
-    const url = env.apiUrl + `/works?select=DOI,title,publisher,author,type,created,URL&rows=6&sort=published&order=asc&cursor=*`;
+    const url = env.apiUrl + `/works?select=DOI,title,publisher,author,type,created,URL&rows=6&sort=published-online&order=desc&cursor=*`;
     const expectedResult: Partial<CrossRefResponseInterface> = {
       status: "ok",
       message: {
